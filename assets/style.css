@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, greenyellow, dodgerblue);
+    font-family: "Dosis", serif;
+}
+
+.container{
+    position: relative;
+    padding: 3.125rem 3.125rem;
+    background: #fff;
+    border-radius: 10px;
+    font-size: 1.3rem;
+}
+
+h1{
+    border-left: 0.313 rem solid dodgerblue;
+    padding: 0.625rem;
+    margin-bottom: 3.75 rem;
+    font-weight: bold;
+    padding-left: 0.625rem;
+}
