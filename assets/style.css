@@ -14,16 +14,67 @@ body{
 
 .container{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 3.125rem 3.125rem;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 0.625rem;
+    font-size: 1.3rem;
+}
+
+.container__nivel{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 90%;
+    min-height: 100vh;
+    background: #fff;
+    border-radius: 0.625rem;
     font-size: 1.3rem;
 }
 
 h1{
-    border-left: 0.313 rem solid dodgerblue;
+    border-left: 0.313rem solid rgb(20, 56, 51);
     padding: 0.625rem;
-    margin-bottom: 3.75 rem;
+    margin-bottom: 3.75rem;
     font-weight: bold;
     padding-left: 0.625rem;
+}
+
+.btnOpcao{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: large;
+    min-width: 100%;
+    min-height: 2rem;
+    background: rgba(49, 240, 14, 0.3);
+    border-radius: 0.313rem;
+    border: 0.063rem solid rgba(49, 240, 14, 1);
+    box-shadow: 0px 0px 2px 2px rgb(9, 58, 8);
+    font-family: "Dosis", serif;
+}
+
+.btnOpcao:hover{
+    background: rgb(230, 255, 225);
+    box-shadow: 0px 0px 2px 2px rgb(34, 151, 241);
+    cursor: pointer;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+    min-width: 100%;
+}
+
+a::after{
+    color: black;
+    text-decoration:none;
 }
