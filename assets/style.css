@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
 
-body{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+
+body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -13,7 +18,7 @@ body{
 }
 
 .container{
-    position: relative;
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,6 +26,7 @@ body{
     text-align: center;
     padding: 3.125rem 3.125rem;
     background: #fff;
+    border: 1rem solid rgb(20, 56, 51);
     border-radius: 0.625rem;
     font-size: 1.3rem;
 }
@@ -35,6 +41,7 @@ body{
     min-width: 90%;
     min-height: 100vh;
     background: #fff;
+    border: 1rem solid rgb(20, 56, 51);
     border-radius: 0.625rem;
     font-size: 1.3rem;
 }
