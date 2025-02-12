@@ -9,8 +9,19 @@
 <body>
     <div class="container__nivel">
         <div class="container__nivel__conteudo">
-            <p class="titulo__nivel">Tutorial</p>
+            <h2>Tutorial</h2>
+                <ul class="container__nivel__conteudo__lista">
+                    <li>Neste modo, você deve traduzir o verbo apresentado digitando no campo.</li>
+                    <li>Para conferir a resposta, clique no botão "Check" ou então utilize a tecla "ENTER" para agilizar.</li>
+                    <li>Note que, um verbo pode ter mais de uma tradução possível. Digite o que julgar correto.</li>
+                    <li>Não será considerado contexto, somente a tradução do verbo.</li>
+                    <li>Para começar, clique no botão abaixo:</li>
+                </ul>    
+            <button onclick="startNivel1()" class="btn__nivel">Iniciar</button>
         </div>
+            <div class="container__nivel__conteudo__resultados">
+                <p id="resultado">Acertou!</p>
+            </div>
     </div>
 
     <script src="app.js"></script>
