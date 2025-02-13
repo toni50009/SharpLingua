@@ -20,7 +20,6 @@ let verbosDisponiveis = [...listaDeVerbos];
 function startNivel1(){
     let fase = 1;
     document.querySelector('.container__nivel__conteudo').innerHTML = `
-<<<<<<< HEAD
     <h2>Fase ${fase}/10</h2>
     <h1 class="destaque">To Be</h1>
     <p>Tradução: </p> 
@@ -30,10 +29,4 @@ function startNivel1(){
     <br>
     <button onclick="checarVerbo()" class="btn__checarVerbo">Check</button>
     `;
-=======
-    <h2>To Be</h2>
-    <h3>Nível 1/10</h3>
-    <p>Tradução: </p> <input type="text" id="resposta" placeholder="Digite a resposta">
- `;
->>>>>>> b463ab10b86f40d281d683659b63af95547d3330
 }
