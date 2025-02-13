@@ -13,14 +13,15 @@
                 <ul class="container__nivel__conteudo__lista">
                     <li>Neste modo, você deve traduzir o verbo apresentado digitando no campo.</li>
                     <li>Para conferir a resposta, clique no botão "Check" ou então utilize a tecla "ENTER" para agilizar.</li>
-                    <li>Note que, um verbo pode ter mais de uma tradução possível. Digite o que julgar correto.</li>
+                    <li>Note que: um verbo pode ter mais de uma tradução possível. Digite apenas a tradução que achar melhor.</li>
                     <li>Não será considerado contexto, somente a tradução do verbo.</li>
                     <li>Para começar, clique no botão abaixo:</li>
                 </ul>    
-            <button onclick="startNivel1()" class="btn__nivel">Iniciar</button>
+            <button onclick="startNivel1()" class="btn__nivel" id="btn__start">Iniciar</button>
         </div>
-            <div class="container__nivel__conteudo__resultados">
+            <div class="container__nivel__conteudo__resultados invisivel">
                 <p id="resultado">Acertou!</p>
+                <p>Traduções aceitas: Ser, Estar</p>
             </div>
     </div>
 

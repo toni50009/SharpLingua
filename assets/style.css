@@ -4,6 +4,8 @@
     100% { opacity: 1; }
   }
 
+
+
 *{
     margin: 0;
     padding: 0;
@@ -42,12 +44,15 @@ body{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: 90%;
-    min-height: 100vh;
-    background: #fff;
-    border: 1rem solid rgb(20, 56, 51);
-    border-radius: 0.625rem;
+    min-width: 60%;
+    max-width: 80%;
+    min-height: 70vh;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    border: 0.5rem double rgb(20, 56, 51);
+    border-radius: 1rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     font-size: 1.3rem;
+    padding: 2rem;
 }
 
 .container__nivel__conteudo{
@@ -73,6 +78,35 @@ h1{
 }
 
 
+h1.destaque{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #010501;
+    padding: 0.625rem;
+    border-left: 0.313rem solid #27c712;
+    border-right: 0.313rem solid #27c712;
+    margin-bottom: 3rem;
+}
+
+
+input#resposta {
+    font-size: 1.2rem;
+    border: 2px solid #1e90ff;
+    border-radius: 0.5rem;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    outline: none;
+    transition: 0.3s;
+}
+
+
+input#resposta:focus {
+    border-color: #09e72a;
+    box-shadow: 0 0 10px rgb(21, 68, 10);
+}
+
+
 .container__nivel__conteudo__lista{
     text-align: left;
     list-style:decimal;
@@ -83,7 +117,7 @@ li{
     margin: 2rem;   
 }
 
-.container__nivel__conteudo__resultados{
+.container__nivel__conteudo__resultados {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,8 +126,17 @@ li{
     background-color: green;
     color: #fff;
     width: 100%;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background 0.5s ease-in-out;
 }
 
+
+.container__nivel__conteudo__resultados.erro {
+    background-color: red;
+}
 
 
 .btnOpcao{
@@ -110,20 +153,20 @@ li{
     font-family: "Dosis", serif;
 }
 
-.btnOpcao, .btn__nivel:hover{
+.btnOpcao:hover, .btn__nivel:hover, .btn__checarVerbo:hover{
     background: rgb(230, 255, 225);
     box-shadow: 0px 0px 2px 2px rgb(34, 151, 241);
     cursor: pointer;
 }
 
 
-.btn__nivel{
+.btn__nivel, .btn__checarVerbo{
     padding: 0.225rem;
     font-size: large;
     font-weight: bold;
-    background: rgba(49, 240, 14, 0.3);
+    background: rgb(192, 238, 183);
     border-radius: 0.313rem;
-    border: 0.063rem solid rgba(49, 240, 14, 1);
+    border: 0.023rem solid rgba(49, 240, 14, 1);
     box-shadow: 0px 0px 2px 2px rgb(9, 58, 8);
     font-family: "Dosis", serif;
 }
