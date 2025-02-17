@@ -89,7 +89,7 @@ h1.destaque{
 }
 
 
-input#resposta {
+input#campoTentativa {
     font-size: 1.2rem;
     border: 2px solid #1e90ff;
     border-radius: 0.5rem;
@@ -101,17 +101,25 @@ input#resposta {
 }
 
 
-input#resposta:focus {
+input#campoTentativa:focus {
     border-color: #09e72a;
     box-shadow: 0 0 10px rgb(21, 68, 10);
 }
 
+
+.container__nivel__conteudo__inputs{
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+    gap:1rem;
+}
 
 .container__nivel__conteudo__lista{
     text-align: left;
     list-style:decimal;
     margin: 2rem;
 }
+
 
 li{
     margin: 2rem;   
