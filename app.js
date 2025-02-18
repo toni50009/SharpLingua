@@ -90,9 +90,13 @@ function checarVerbo(){
 
     if(respostasAceitas.includes(respostaUsuario)){
         resultadoTexto.innerText = "Correto!";
+        respostasTexto.textContent = `Traduções aceitas: ${respostasAceitas.join(", ")}`;
         resultadoDiv.classList.remove("erro");
     } else {
         resultadoTexto.innerText = "Incorreto!";
         resultadoDiv.classList.add("erro");
+        respostasTexto.textContent = "";
     }
+
+
 }
