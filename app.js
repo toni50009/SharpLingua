@@ -53,7 +53,9 @@ function startNivel1(){
         <br>
         <br>
         <br>
+        <div class="container__nivel__conteudo__botao">
         <button onclick="checarVerbo()" class="btn__checarVerbo">Check</button>
+        </div>
         `;
 
     document.getElementById("campoTentativa").focus();
@@ -82,6 +84,7 @@ function checarVerbo(){
     
     // coletar dados do HTML
     const resultadoDiv = document.querySelector(".container__nivel__conteudo__resultados");
+    const campoBotao = document.querySelector(".container__nivel__conteudo__botao");
     const resultadoTexto = document.getElementById("resultado");
     const respostasTexto = document.getElementById("respostasCorretas");
 
@@ -92,10 +95,14 @@ function checarVerbo(){
         resultadoTexto.innerText = "Correto!";
         respostasTexto.textContent = `Traduções aceitas: ${respostasAceitas.join(", ")}`;
         resultadoDiv.classList.remove("erro");
+        campoBotao.innerHTML = `
+        <button onclick="proximoVerbo()" class="btn__proximoVerbo">Próximo Verbo!</button>
+        `;
     } else {
         resultadoTexto.innerText = "Incorreto!";
         resultadoDiv.classList.add("erro");
         respostasTexto.textContent = "";
+        
     }
 
 
