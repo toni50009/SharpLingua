@@ -70,6 +70,7 @@ function startNivel1(){
 }
 
 
+
 function escolherVerboAleatorio(){
     const indice = Math.floor(Math.random() * verbosDisponiveis.length);
     const verboEscolhido = verbosDisponiveis[indice];
@@ -98,6 +99,13 @@ function checarVerbo(){
         campoBotao.innerHTML = `
         <button onclick="proximoVerbo()" class="btn__proximoVerbo">Próximo Verbo!</button>
         `;
+        //otimizar com enter
+        document.getElementById("campoTentativa").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+               proximoVerbo();
+            }
+        });
+
     } else {
         resultadoTexto.innerText = "Incorreto!";
         resultadoDiv.classList.add("erro");
@@ -106,4 +114,13 @@ function checarVerbo(){
     }
 
 
+}
+
+
+function proximoVerbo(){
+    fase++;
+    document.getElementById("campoTentativa").value = "";
+    document.getElementById("campoTentativa").focus();
+    document.querySelector(".container__nivel__conteudo__resultados").classList.add("invisivel");
+    startNivel1();
 }
