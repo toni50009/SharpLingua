@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>SharpLingua</title>
+</head>
+<body>
+    <div class="container__nivel">
+        <div class="container__nivel__conteudo">
+            <h2>Tutorial</h2>
+                <ul class="container__nivel__conteudo__lista">
+                    <li>Neste modo, você deve traduzir os Phrasal Verbs que aparecerem.</li>
+                    <li>Para conferir a resposta, clique no botão "Check" ou então utilize a tecla "ENTER" para agilizar.</li>
+                    <li>Para começar, clique no botão abaixo:</li>
+                </ul>    
+            <button onclick="startNivel1()" class="btn__nivel" id="btn__start">Iniciar</button>
+        </div>
+            <div class="container__nivel__conteudo__resultados invisivel">
+                <p id="resultado"></p>
+                <p id="respostasCorretas"></p>
+            </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

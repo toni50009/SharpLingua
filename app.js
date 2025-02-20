@@ -94,7 +94,10 @@ function checarVerbo(){
 
     if(respostasAceitas.includes(respostaUsuario)){
         resultadoTexto.innerHTML = "Correto!";
-        respostasTexto.innerHTML = `Traduções aceitas: ${respostasAceitas.join(", ")}. <br>Tecle "Enter" ou clique no botão para prosseguir.`;
+        respostasTexto.innerHTML = `Traduções aceitas: ${respostasAceitas.join(", ")}. 
+        <br>
+        <br>
+        Tecle "Enter" ou clique no botão para prosseguir.`;
         resultadoDiv.classList.remove("erro");
         campoBotao.innerHTML = `
         <button onclick="proximoVerbo()" class="btn__proximoVerbo">Próximo Verbo!</button>
@@ -110,7 +113,7 @@ function checarVerbo(){
         resultadoTexto.innerText = "Incorreto!";
         resultadoDiv.classList.add("erro");
         respostasTexto.textContent = "";
-        
+        document.getElementById("campoTentativa").value = "";
     }
 
 
@@ -118,6 +121,19 @@ function checarVerbo(){
 
 
 function proximoVerbo(){
+    if(fase === 20){
+        document.querySelector(".container__nivel").innerHTML = `
+        <div class="container__nivel__conteudo__final">
+        Parabéns! Você completou todas as fases!
+        <br>
+        <a href="seletorniveis.html" class="link__menu" style="text-decoration:underline">Clique aqui para voltar ao menu principal</a>
+        </div>
+        `;
+        verbosDisponiveis = [...listaDeVerbos];
+        fase = 1;
+        return;
+    }
+
     fase++;
     document.getElementById("campoTentativa").value = "";
     document.getElementById("campoTentativa").focus();
