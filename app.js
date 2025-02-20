@@ -93,8 +93,8 @@ function checarVerbo(){
     resultadoDiv.classList.remove("invisivel");
 
     if(respostasAceitas.includes(respostaUsuario)){
-        resultadoTexto.innerText = "Correto!";
-        respostasTexto.textContent = `Traduções aceitas: ${respostasAceitas.join(", ")}`;
+        resultadoTexto.innerHTML = "Correto!";
+        respostasTexto.innerHTML = `Traduções aceitas: ${respostasAceitas.join(", ")}. <br>Tecle "Enter" ou clique no botão para prosseguir.`;
         resultadoDiv.classList.remove("erro");
         campoBotao.innerHTML = `
         <button onclick="proximoVerbo()" class="btn__proximoVerbo">Próximo Verbo!</button>

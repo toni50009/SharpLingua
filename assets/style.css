@@ -169,12 +169,12 @@ li{
 
 
 .btn__nivel, .btn__checarVerbo, .btn__proximoVerbo{
-    padding: 0.225rem;
+    padding: 0.425rem 0.725rem;
     font-size: large;
     font-weight: bold;
     background: rgb(192, 238, 183);
     border-radius: 0.313rem;
-    border: 0.023rem solid rgba(49, 240, 14, 1);
+    border: 0.013rem solid rgba(49, 240, 14, 1);
     box-shadow: 0px 0px 2px 2px rgb(9, 58, 8);
     font-family: "Dosis", serif;
 }
