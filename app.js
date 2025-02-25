@@ -28,52 +28,54 @@ const listaTraducoesVerbos = {
 };
 
 const listaPharsalVerbs = [
-    "To back up",
-    "To break down",
-    "To bring up",
-    "To call off",
-    "To carry out",
-    "To come across",
-    "To come up with",
-    "To slow down",
-    "To speed up",
-    "To cut off",
-    "To drop off", 
-    "To figure out",
-    "To get along",
-    "To get away",
-    "To get over",
-    "To go on",
-    "To hold on",
-    "To keep up",
+    "To turn on",
+    "To turn off",
+    "To get out",
+    "To get in",
+    "To put on",
+    "To take off",
+    "To look for",
     "To look after",
-    "To pack up",
+    "To come back",
+    "To go out",
+    "To go in",
+    "To give up",
+    "To give back",
+    "To take down",
+    "To get up",
+    "To get down",
+    "To look up",
+    "To look down",
+    "To put away",
+    "To give up",
 ];
 
 const listaPharsalVerbsTraducoes = {
-    "To back up": ["dar ré", "apoiar", "suportar"],
-    "To break down": ["quebrar", "falhar", "parar de funcionar"],
-    "To bring up": ["mencionar", "criar", "educar"],
-    "To call off": ["cancelar", "desmarcar"],
-    "To carry out": ["realizar", "executar"],
-    "To come across": ["encontrar", "deparar-se com"],
-    "To come up with": ["surgir com", "inventar", "sugerir"],
-    "To slow down": ["desacelerar", "diminuir a velocidade"],
-    "To speed up": ["acelerar", "aumentar a velocidade"],
-    "To cut off": ["cortar", "interromper"],
-    "To drop off": ["deixar", "largar"],
-    "To figure out": ["descobrir", "entender"],
-    "To get along": ["se dar bem", "relacionar-se bem"],
-    "To get away": ["escapar", "sair"],
-    "To get over": ["superar", "recuperar-se"],
-    "To go on": ["continuar", "prosseguir"],
-    "To hold on": ["esperar", "aguardar"],
-    "To keep up": ["manter", "continuar"],
-    "To look after": ["cuidar", "tomar conta"], 
-    "To pack up": ["empacotar", "arrumar"],
+    "To turn on": ["ligar", "acender"],
+    "To turn off": ["desligar", "apagar"],
+    "To get out": ["sair", "descer"],
+    "To get in": ["entrar", "subir"],
+    "To put on": ["vestir", "colocar"],
+    "To take off": ["tirar", "remover"],
+    "To look for": ["procurar", "buscar"],
+    "To look after": ["cuidar", "tomar conta"],
+    "To come back": ["voltar", "retornar"],
+    "To go out": ["sair", "ir embora"],
+    "To go in": ["entrar", "adentrar"],
+    "To give up": ["desistir", "abandonar"],
+    "To give back": ["devolver", "restituir"],
+    "To take down": ["anotar", "derrubar"],
+    "To get up": ["levantar", "acordar"],
+    "To get down": ["descer", "abaixar"],
+    "To look up": ["procurar", "pesquisar"],
+    "To look down": ["olhar para baixo", "desprezar"],
+    "To put away": ["guardar", "arrumar"],
+    "To give up": ["desistir", "abandonar"],
 };
 
 
+//Universal
+let tentativas = 0;
 
 //Nivel 1
 let verbosDisponiveis = [...listaDeVerbos];
@@ -88,11 +90,6 @@ let fasePhrasal = 1;
 
 
 function startNivel1(){
-    if(verbosDisponiveis.length === 0){
-        alert('Parabéns, você descobriu todos os verbos!');
-        verbosDisponiveis = [...listaDeVerbos];
-        return;
-    }
 
     verboAtual = escolherVerboAleatorio();
 
@@ -125,11 +122,6 @@ function startNivel1(){
 
 
 function startNivel2(){
-    if(phrasalVerbsDisponiveis.length === 0){
-        alert('Parabéns, você descobriu todos os Phrasal Verbs!');
-        phrasalVerbsDisponiveis = [...listaPharsalVerbs];
-        return;
-    }
 
     phrasalVerbAtual = escolherPhrasalVerbAleatorio();
 
