@@ -93,30 +93,8 @@ function startNivel1(){
 
     verboAtual = escolherVerboAleatorio();
 
-    document.querySelector('.container__nivel__conteudo').innerHTML = `
-    <h2>Fase ${fase}/20</h2>
-    <br>
-    <h1 class="destaque">${verboAtual}</h1>
-        <section class="container__nivel__conteudo__inputs">
-            <p>Tradução: </p> 
-            <input type="text" id="campoTentativa" placeholder="Digite a resposta">
-        </section>
-        <br>
-        <br>
-        <br>
-        <div class="container__nivel__conteudo__botao">
-        <button onclick="checarVerbo()" class="btn__checarVerbo">Check</button>
-        </div>
-        `;
+    mensagemInicial("checarVerbo");
 
-    document.getElementById("campoTentativa").focus();
-
-    // Para chamar o botão apertando a tecla Enter
-    document.getElementById("campoTentativa").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-            checarVerbo();
-        }
-    });
 
 }
 
@@ -125,30 +103,8 @@ function startNivel2(){
 
     phrasalVerbAtual = escolherPhrasalVerbAleatorio();
 
-    document.querySelector('.container__nivel__conteudo').innerHTML = `
-    <h2>Fase ${fase}/20</h2>
-    <br>
-    <h1 class="destaque">${phrasalVerbAtual}</h1>
-        <section class="container__nivel__conteudo__inputs">
-            <p>Tradução: </p> 
-            <input type="text" id="campoTentativa" placeholder="Digite a resposta">
-        </section>
-        <br>
-        <br>
-        <br>
-        <div class="container__nivel__conteudo__botao">
-        <button onclick="checarPhrasalVerb()" class="btn__checarVerbo">Check</button>
-        </div>
-        `;
+    mensagemInicial("checarPhrasalVerb");
 
-    document.getElementById("campoTentativa").focus();
-
-    // Para chamar o botão apertando a tecla Enter
-    document.getElementById("campoTentativa").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-            checarPhrasalVerb();
-        }
-    });
 
 }
 
@@ -292,4 +248,32 @@ function proximoPhrasalVerb(){
     document.getElementById("campoTentativa").focus();
     document.querySelector(".container__nivel__conteudo__resultados").classList.add("invisivel");
     startNivel2();
+}
+
+
+function mensagemInicial(target){
+
+    document.querySelector('.container__nivel__conteudo').innerHTML = `
+    <h2>Fase ${fase}/20</h2>
+    <br>
+    <h1 class="destaque">${phrasalVerbAtual}</h1>
+        <section class="container__nivel__conteudo__inputs">
+            <p>Tradução: </p> 
+            <input type="text" id="campoTentativa" placeholder="Digite a resposta">
+        </section>
+        <br>
+        <br>
+        <br>
+        <div class="container__nivel__conteudo__botao">
+        <button onclick="${target}()" class="btn__checarVerbo">Check</button>
+        </div>
+        `;
+
+        document.getElementById("campoTentativa").focus();
+
+        document.getElementById("campoTentativa").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                `${target}()`;
+            }
+        });
 }
