@@ -93,7 +93,13 @@ function startNivel1(){
 
     verboAtual = escolherVerboAleatorio();
 
-    mensagemInicial("checarVerbo");
+    mensagemInicial("checarVerbo",verboAtual);
+
+    document.getElementById("campoTentativa").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            checarVerbo();
+        }
+    });
 
 
 }
@@ -103,8 +109,13 @@ function startNivel2(){
 
     phrasalVerbAtual = escolherPhrasalVerbAleatorio();
 
-    mensagemInicial("checarPhrasalVerb");
+    mensagemInicial("checarPhrasalVerb",phrasalVerbAtual);
 
+    document.getElementById("campoTentativa").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            checarPhrasalVerb();
+        }
+    });
 
 }
 
@@ -126,7 +137,7 @@ function escolherPhrasalVerbAleatorio(){
 }
 
 
-function checarVerbo(){
+function checarVerbo(listaRef, verbo){
     const respostaUsuario = document.getElementById("campoTentativa").value.trim().toLowerCase();
     const respostasAceitas = listaTraducoesVerbos[verboAtual].map(resposta => resposta.toLowerCase());
     
@@ -251,12 +262,12 @@ function proximoPhrasalVerb(){
 }
 
 
-function mensagemInicial(target){
+function mensagemInicial(target,opcao){
 
     document.querySelector('.container__nivel__conteudo').innerHTML = `
     <h2>Fase ${fase}/20</h2>
     <br>
-    <h1 class="destaque">${phrasalVerbAtual}</h1>
+    <h1 class="destaque">${opcao}</h1>
         <section class="container__nivel__conteudo__inputs">
             <p>Tradução: </p> 
             <input type="text" id="campoTentativa" placeholder="Digite a resposta">
@@ -265,15 +276,10 @@ function mensagemInicial(target){
         <br>
         <br>
         <div class="container__nivel__conteudo__botao">
-        <button onclick="${target}()" class="btn__checarVerbo">Check</button>
+        <button onclick="${target}" class="btn__checarVerbo">Check</button>
         </div>
         `;
 
         document.getElementById("campoTentativa").focus();
 
-        document.getElementById("campoTentativa").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                `${target}()`;
-            }
-        });
 }
