@@ -47,7 +47,7 @@ const listaPharsalVerbs = [
     "To look up",
     "To look down",
     "To put away",
-    "To give up",
+    "To figure out",
 ];
 
 const listaPharsalVerbsTraducoes = {
@@ -70,7 +70,7 @@ const listaPharsalVerbsTraducoes = {
     "To look up": ["procurar", "pesquisar"],
     "To look down": ["olhar para baixo", "desprezar"],
     "To put away": ["guardar", "arrumar"],
-    "To give up": ["desistir", "abandonar"],
+    "To figure out": ["descobrir", "entender, solucionar"],
 };
 
 
@@ -93,10 +93,10 @@ function iniciarNivel(tipo){
     console.log(tipo);
     if(tipo === "verbo"){
         verboAtual = escolherAleatorio(verbosDisponiveis);
-        mensagemInicial(`checarResposta(${verboAtual}, ${listaTraducoesVerbos})`, verboAtual);
+        mensagemInicial(() => checarResposta(verboAtual, listaTraducoesVerbos), verboAtual);
     }else{
         phrasalVerbAtual = escolherAleatorio(phrasalVerbsDisponiveis);
-        mensagemInicial(`checarResposta(${phrasalVerbAtual}, ${listaPharsalVerbsTraducoes})`, phrasalVerbAtual);
+        mensagemInicial(() => checarResposta(phrasalVerbAtual, listaPharsalVerbsTraducoes), phrasalVerbAtual);
     }
 
         document.getElementById("campoTentativa").addEventListener("keypress", function(event){
@@ -123,12 +123,19 @@ function checarResposta(verbo, listaTraducao){
     console.log(`Tentativas antes da checagem: ${tentativas}`);
     const respostaUsuario = document.getElementById("campoTentativa").value.trim().toLowerCase();
     const respostasAceitas = listaTraducao[verbo].map(resposta => resposta.toLowerCase());
+
+
+    if(respostaUsuario === "") {
+        alert("Digite uma resposta!");
+        return;
+    }
     
     // coletar dados do HTML
     const resultadoDiv = document.querySelector(".container__nivel__conteudo__resultados");
     const campoBotao = document.querySelector(".container__nivel__conteudo__botao");
     const resultadoTexto = document.getElementById("resultado");
     const respostasTexto = document.getElementById("respostasCorretas");
+
 
     // Verificar se a resposta do usuário está correta
     resultadoDiv.classList.remove("invisivel");
@@ -151,7 +158,7 @@ function checarResposta(verbo, listaTraducao){
             }
         });
 
-    } else {
+    }else {
         tentativas --;
         console.log(`Tentativas caso erro: ${tentativas}`);
         if(tentativas === 0) {
@@ -166,18 +173,20 @@ function checarResposta(verbo, listaTraducao){
             `;
             return;
         }
-        resultadoTexto.innerHTML = `Incorreto! ${tentativas} ${palavraTentativa} restante.`;
+
+        // para aparecer a palavra "tentativa" corretamente
+        let palavraTentativa = tentativas === 1 ? "tentativa" : "tentativas";
+        let palavraRestante = tentativas === 1 ? "restante" : "restantes";
+
+
+        resultadoTexto.innerHTML = `Incorreto! ${tentativas} ${palavraTentativa} ${palavraRestante}.`;
         resultadoDiv.classList.add("erro");
         respostasTexto.textContent = "";
         document.getElementById("campoTentativa").value = "";
 
-
     }
 
 }
-
-// para aparecer a palavra "tentativa" corretamente
-let palavraTentativa = tentativas > 1 ? "tentativas" : "tentativa";
 
 
 
@@ -224,10 +233,11 @@ function mensagemInicial(target,opcao){
         <br>
         <br>
         <div class="container__nivel__conteudo__botao">
-        <button onclick="${target}()" class="btn__checarVerbo">Check</button>
+        <button id="botaoCheck" class="btn__checarVerbo">Check</button>
         </div>
         `;
 
         document.getElementById("campoTentativa").focus();
+        document.getElementById("botaoCheck").addEventListener("click", target);
 
 }
