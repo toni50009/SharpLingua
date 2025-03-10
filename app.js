@@ -27,7 +27,7 @@ const listaTraducoesVerbos = {
     "To call": ["chamar", "ligar"],
 };
 
-const listaPharsalVerbs = [
+const listaPhrasalVerbs = [
     "To turn on",
     "To turn off",
     "To get out",
@@ -50,7 +50,7 @@ const listaPharsalVerbs = [
     "To figure out",
 ];
 
-const listaPharsalVerbsTraducoes = {
+const listaPhrasalVerbsTraducoes = {
     "To turn on": ["ligar", "acender"],
     "To turn off": ["desligar", "apagar"],
     "To get out": ["sair", "descer"],
@@ -76,149 +76,54 @@ const listaPharsalVerbsTraducoes = {
 
 //Universal
 let tentativas = 3;
+let fase = 1;
+let tipo;
+
 
 //Nivel 1
 let verbosDisponiveis = [...listaDeVerbos];
 let verboAtual = "";
-let fase = 1;
 
 //Nivel 2
-let phrasalVerbsDisponiveis = [...listaPharsalVerbs];
+let phrasalVerbsDisponiveis = [...listaPhrasalVerbs];
 let phrasalVerbAtual = "";
 
 
 
-function iniciarNivel(tipo){
-    console.log(`Tentativas desde o começo: ${tentativas}`);
-    console.log(tipo);
+
+// Passo 1: Iniciar o jogo
+function iniciarNivel(novoTipo){
+    tipo = novoTipo;
     if(tipo === "verbo"){
         verboAtual = escolherAleatorio(verbosDisponiveis);
         mensagemInicial(() => checarResposta(verboAtual, listaTraducoesVerbos), verboAtual);
     }else{
         phrasalVerbAtual = escolherAleatorio(phrasalVerbsDisponiveis);
-        mensagemInicial(() => checarResposta(phrasalVerbAtual, listaPharsalVerbsTraducoes), phrasalVerbAtual);
+        mensagemInicial(() => checarResposta(phrasalVerbAtual, listaPhrasalVerbsTraducoes), phrasalVerbAtual);
     }
 
-        document.getElementById("campoTentativa").addEventListener("keypress", function(event){
-            if(event.key === "Enter"){
-                tipo === "verbo" ? checarResposta(verboAtual, listaTraducoesVerbos) : checarResposta(phrasalVerbAtual, listaPharsalVerbsTraducoes);
-            }
-        });
-
-}
-
-
-
-function escolherAleatorio(lista){
-    const indice = Math.floor(Math.random() * lista.length);
-    const escolhido = lista[indice];
-    console.log(`Verbo/Phrasal escolhido: ${escolhido}`);
-    lista.splice(indice, 1); // Remove o verbo escolhido da lista de verbos disponíveis
-    console.log(` lista de verbos/Phrasal: ${lista}`);
-    return escolhido;
-}
-
-
-function checarResposta(verbo, listaTraducao){
-    console.log(`Tentativas antes da checagem: ${tentativas}`);
-    const respostaUsuario = document.getElementById("campoTentativa").value.trim().toLowerCase();
-    const respostasAceitas = listaTraducao[verbo].map(resposta => resposta.toLowerCase());
-
-
-    if(respostaUsuario === "") {
-        alert("Digite uma resposta!");
-        return;
-    }
     
-    // coletar dados do HTML
-    const resultadoDiv = document.querySelector(".container__nivel__conteudo__resultados");
-    const campoBotao = document.querySelector(".container__nivel__conteudo__botao");
-    const resultadoTexto = document.getElementById("resultado");
-    const respostasTexto = document.getElementById("respostasCorretas");
+    document.getElementById("campoTentativa").removeEventListener("keypress", handleProximoPasso);
+    document.getElementById("campoTentativa").removeEventListener("keypress", handleChecarResposta);
+    document.getElementById("campoTentativa").addEventListener("keypress", handleChecarResposta);
+
+}
 
 
-    // Verificar se a resposta do usuário está correta
-    resultadoDiv.classList.remove("invisivel");
 
-    if(respostasAceitas.includes(respostaUsuario)){
-        resultadoTexto.innerHTML = "Correto!";
-        respostasTexto.innerHTML = `Traduções aceitas: ${respostasAceitas.join(", ")}. 
-        <br>
-        <br>
-        Tecle "Enter" ou clique no botão para prosseguir.`;
-        resultadoDiv.classList.remove("erro");
-        campoBotao.innerHTML = `
-        <button onclick="proximoPasso()" class="btn__proximoVerbo">Próxima fase!</button>
-        `;
-        console.log(`Tentativas caso acerto: ${tentativas}`);
-        //otimizar com enter
-        document.getElementById("campoTentativa").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-               proximoPasso();
-            }
-        });
-
-    }else {
-        tentativas --;
-        console.log(`Tentativas caso erro: ${tentativas}`);
-        if(tentativas === 0) {
-            console.log(`Perdeu, tentativas: ${tentativas}`);
-            document.querySelector(".container__nivel").innerHTML = `
-            <div class="container__nivel__conteudo__final">
-            Sem mais tentativas restantes! 
-            A resposta era:${respostasAceitas}
-            <br>
-            <a href="seletorniveis.html" class="link__menu" style="text-decoration:underline">Clique aqui para voltar ao menu principal</a>
-            </div>
-            `;
-            return;
+// Função para verificar se o usuário apertou "Enter" para checar a resposta
+function handleChecarResposta(event) {
+    if (event.key === "Enter") {
+        if (tipo === "verbo") {
+            checarResposta(verboAtual, listaTraducoesVerbos);
+        } else {
+            checarResposta(phrasalVerbAtual, listaPhrasalVerbsTraducoes);
         }
-
-        // para aparecer a palavra "tentativa" corretamente
-        let palavraTentativa = tentativas === 1 ? "tentativa" : "tentativas";
-        let palavraRestante = tentativas === 1 ? "restante" : "restantes";
-
-
-        resultadoTexto.innerHTML = `Incorreto! ${tentativas} ${palavraTentativa} ${palavraRestante}.`;
-        resultadoDiv.classList.add("erro");
-        respostasTexto.textContent = "";
-        document.getElementById("campoTentativa").value = "";
-
     }
-
 }
 
 
-
-function proximoPasso(){
-    if(fase === 5){
-        document.querySelector(".container__nivel").innerHTML = `
-        <div class="container__nivel__conteudo__final">
-        Parabéns! Você completou todas as fases!
-        <br>
-        <a href="seletorniveis.html" class="link__menu" style="text-decoration:underline">Clique aqui para voltar ao menu principal</a>
-        </div>
-        `;
-        verbosDisponiveis = [...listaDeVerbos];
-        phrasalVerbsDisponiveis = [...listaPharsalVerbs];
-        fase = 1;
-        return;
-    }
-
-    fase++;
-    document.getElementById("campoTentativa").value = "";
-    document.getElementById("campoTentativa").focus();
-    document.querySelector(".container__nivel__conteudo__resultados").classList.add("invisivel");
-    
-    if(verboAtual){
-        iniciarNivel("verbo");
-    }else{
-        iniciarNivel("phrasal");
-    }
-
-}
-
-
+// Passo 2: Mostrar a mensagem inicial
 function mensagemInicial(target,opcao){
 
     document.querySelector('.container__nivel__conteudo').innerHTML = `
@@ -240,4 +145,124 @@ function mensagemInicial(target,opcao){
         document.getElementById("campoTentativa").focus();
         document.getElementById("botaoCheck").addEventListener("click", target);
 
+}
+
+
+// Passo 3: Escolher um verbo aleatório
+function escolherAleatorio(lista){
+    const indice = Math.floor(Math.random() * lista.length);
+    const escolhido = lista[indice];
+    lista.splice(indice, 1); // Remove o verbo escolhido da lista de verbos disponíveis
+    return escolhido;
+}
+
+
+
+//Passo 4: Checar a resposta do usuário
+function checarResposta(verbo, listaTraducao){
+    const respostaUsuario = document.getElementById("campoTentativa").value.trim().toLowerCase();
+    const respostasAceitas = listaTraducao[verbo].map(resposta => resposta.toLowerCase());
+
+
+    if(respostaUsuario === "") {
+        alert("Digite uma resposta!");
+        document.getElementById("campoTentativa").focus();
+        return;
+    }
+    
+    // coletar dados do HTML
+    const resultadoDiv = document.querySelector(".container__nivel__conteudo__resultados");
+    const campoBotao = document.querySelector(".container__nivel__conteudo__botao");
+    const resultadoTexto = document.getElementById("resultado");
+    const respostasTexto = document.getElementById("respostasCorretas");
+
+    resultadoDiv.classList.remove("invisivel");
+
+
+    // Verificar se a resposta do usuário está correta
+    //Acertou
+    if(respostasAceitas.includes(respostaUsuario)){
+        resultadoTexto.innerHTML = "Correto!";
+        respostasTexto.innerHTML = `Traduções aceitas: ${respostasAceitas.join(", ")}. 
+        <br>
+        <br>
+        Tecle "Enter" ou clique no botão para prosseguir.`;
+        resultadoDiv.classList.remove("erro");
+        campoBotao.innerHTML = `
+        <button onclick="proximoPasso()" class="btn__proximoVerbo">Próxima fase!</button>
+        `;
+
+
+        //otimizar com enter
+
+        document.getElementById("campoTentativa").removeEventListener("keypress", handleChecarResposta);
+        document.getElementById("campoTentativa").removeEventListener("keypress", handleProximoPasso);
+        document.getElementById("campoTentativa").addEventListener("keypress", handleProximoPasso);
+
+
+
+    }else {
+        tentativas --;
+
+        // Perder o jogo
+        if(tentativas === 0) {
+            document.querySelector(".container__nivel").innerHTML = `
+            <div class="container__nivel__conteudo__final">
+            Sem mais tentativas restantes! 
+            A resposta era:${respostasAceitas.join(", ")}
+            <br>
+            <a href="seletorniveis.html" class="link__menu" style="text-decoration:underline">Clique aqui para voltar ao menu principal</a>
+            </div>
+            `;
+            return;
+        }
+
+        // para aparecer a palavra "tentativa" corretamente
+        let palavraTentativa = tentativas === 1 ? "tentativa" : "tentativas";
+        let palavraRestante = tentativas === 1 ? "restante" : "restantes";
+
+
+
+        // Errou
+        resultadoTexto.innerHTML = `Incorreto! ${tentativas} ${palavraTentativa} ${palavraRestante}.`;
+        resultadoDiv.classList.add("erro");
+        respostasTexto.textContent = "";
+        document.getElementById("campoTentativa").value = "";
+        document.getElementById("campoTentativa").focus();
+
+    }
+
+}
+
+
+//Passo 5: Próxima fase
+function proximoPasso(){
+    if(fase === 20){
+        document.querySelector(".container__nivel").innerHTML = `
+        <div class="container__nivel__conteudo__final">
+        Parabéns! Você completou todas as fases!
+        <br>
+        <a href="seletorniveis.html" class="link__menu" style="text-decoration:underline">Clique aqui para voltar ao menu principal</a>
+        </div>
+        `;
+        verbosDisponiveis = [...listaDeVerbos];
+        phrasalVerbsDisponiveis = [...listaPhrasalVerbs];
+        fase = 1;
+        return;
+    }
+
+    fase++;
+    document.getElementById("campoTentativa").value = "";
+    document.getElementById("campoTentativa").focus();
+    document.querySelector(".container__nivel__conteudo__resultados").classList.add("invisivel");
+    
+    iniciarNivel(tipo);
+}
+
+
+//Handler para chamar a função proximoPasso com enter
+function handleProximoPasso(event) {
+    if (event.key === "Enter") {
+        proximoPasso();
+    }
 }
