@@ -19,12 +19,14 @@
                 <input type="password" id="senha" name="senha" required><br>
             </div><br>
             <div class="inputbox">
-                <button type="submit" class="btnEntrar">Entrar!</button>
+                <button type="submit" class="btn__nivel">Entrar!</button>
             </div>
+                <br>
+                <p>Não tem uma conta?</p><br> <button class="btn__nivel" onclick="mostrarCadastro()">Cadastre-se</button>
+                
         </form>
 
-        <form action="/assets/php/cadastro.php" method="POST">
-            <h2>Cadastre-se</h2>
+        <form class="invisivel" action="/assets/php/cadastro.php" method="POST">
             <div class="inputbox">
                 <label for="new_username">Novo Usuário</label><br>
                 <input type="text" id="new_username" name="new_username" required><br>
