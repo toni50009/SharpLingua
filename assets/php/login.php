@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>window.location.href = '../usuario.html';</script>";
     }else{
         echo "<script>alert('Usuário ou senha incorretos!');</script>";
-        echo "<script>window.location.href = '../index.html';</script>";
+        echo "<script>window.location.href = '/index.html';</script>";
     }
     // VERIFICAR SE  USUARIO JA EXISTA
     $verificar = "SELECT * FROM usuarios WHERE username = '$username'";
@@ -31,10 +31,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($result->num_rows > 0) {
         echo "<script>alert('Nome de usuário já existe!');</script>";
-        echo "<script>window.location.href = '../index.html';</script>";
+        echo "<script>window.location.href = '/index.html';</script>";
     }else{
         echo "<script>alert('Usuário ou senha incorretos!');</script>";
-        echo "<script>window.location.href = '../index.html';</script>";
+        echo "<script>window.location.href = '/index.html';</script>";
     }
 
 }
