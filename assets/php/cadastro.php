@@ -20,6 +20,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }else
 // INSERIR NOVO USUARIO
     {
+        // VERIFICAR SE CAMPO ESTA VAZIO
+        if($username == "" || $senha == "") {
+            echo "<script>alert('Preencha todos os campos!');</script>";
+            echo "<script>window.location.href = '/index.html';</script>";
+            exit();
+        }
+
         $sql = "INSERT INTO usuarios (username,senha) VALUES ('$username','$senha')";
         if($conn->query($sql) === TRUE) {
             echo "<script>alert('Usuário cadastrado com sucesso!');</script>";
