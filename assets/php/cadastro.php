@@ -6,8 +6,8 @@ require __DIR__ . '/config.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $username = $_POST['username'];
-    $senha = $_POST['senha'];
+    $username = $_POST['new_username'];
+    $senha = $_POST['new_senha'];
 
 // VERIFICAR SE USUARIO JA EXISTE
     $verificar = "SELECT * FROM usuarios WHERE username = '$username'";
@@ -16,8 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($result->num_rows > 0) {
         echo "<script>alert('Nome de usuário já existe!');</script>";
         echo "<script>window.location.href = '/index.html';</script>";
-
-
+        exit();
     }else
 // INSERIR NOVO USUARIO
     {
@@ -25,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         if($conn->query($sql) === TRUE) {
             echo "<script>alert('Usuário cadastrado com sucesso!');</script>";
             echo "<script>window.location.href = '/index.html';</script>";
+            exit();
         }else{
             echo "Erro ao cadastrar usuário: " . $conn->error;
         }
