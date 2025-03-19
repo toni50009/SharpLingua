@@ -1,4 +1,10 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 // VALIDAR LOGIN E REDIRECIONAR PARA PAGINA DE USUARIO
 
 
@@ -14,10 +20,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($result->num_rows > 0) {
         echo "<script>alert('Login efetuado com sucesso!');</script>";
-        "<script>window.location.href = '../usuario.html';</script>";
+        echo "<script>window.location.href = '../usuario.html';</script>";
     }else{
         echo "<script>alert('Usuário ou senha incorretos!');</script>";
-        "<script>window.location.href = '../index.html';</script>";
+        echo "<script>window.location.href = '../index.html';</script>";
     }
     // VERIFICAR SE  USUARIO JA EXISTA
     $verificar = "SELECT * FROM usuarios WHERE username = '$username'";
@@ -25,10 +31,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($result->num_rows > 0) {
         echo "<script>alert('Nome de usuário já existe!');</script>";
-         "<script>window.location.href = '../index.html';</script>";
+        echo "<script>window.location.href = '../index.html';</script>";
     }else{
         echo "<script>alert('Usuário ou senha incorretos!');</script>";
-        "<script>window.location.href = '../index.html';</script>";
+        echo "<script>window.location.href = '../index.html';</script>";
     }
 
 }
