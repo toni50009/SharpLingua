@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($result->num_rows > 0) {
         echo "<script>alert('Login efetuado com sucesso!');</script>";
-        echo "<script>window.location.href = '../seletorniveis.html';</script>";
+        echo "<script>window.location.href = 'seletorniveis.html';</script>";
     }else{
         echo "<script>alert('Usuário ou senha incorretos!');</script>";
         echo "<script>window.location.href = '/index.html';</script>";
