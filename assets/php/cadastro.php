@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($result->num_rows > 0) {
         echo "<script>alert('Nome de usuário já existe!');</script>";
-         "<script>window.location.href = '../index.html';</script>";
+        echo "<script>window.location.href = '/index.html';</script>";
 
 
     }else
@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO usuarios (username,senha) VALUES ('$username','$senha')";
         if($conn->query($sql) === TRUE) {
             echo "<script>alert('Usuário cadastrado com sucesso!');</script>";
-            "<script>window.location.href = '../index.html';</script>";
+            echo "<script>window.location.href = '/index.html';</script>";
         }else{
             echo "Erro ao cadastrar usuário: " . $conn->error;
         }
