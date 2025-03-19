@@ -3,8 +3,8 @@
 // CONECTAR COM O BANCO DE DADOS
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "u904092573_toni5000";
+$password = "Dementador@2286";
 $database = "u904092573_Usuarios";
 
 // Inicializar Conexão
