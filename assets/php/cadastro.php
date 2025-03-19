@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 // INSERIR NOVO USUARIO
     {
         // VERIFICAR SE CAMPO ESTA VAZIO
-        if($username == "" || $senha == "") {
+        if($username == " " || $username == "") {
             echo "<script>alert('Preencha todos os campos!');</script>";
             echo "<script>window.location.href = '/index.html';</script>";
             exit();
