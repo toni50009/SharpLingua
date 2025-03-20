@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>SharpLingua</title>
 </head>
 <body>
+    
     <div class="container">
-        <div class="container__titulo">
-            <h1>Bem-vindo</span></h1>
-            <p>Como quer se desafiar hoje?</p>
+        <div class="container__voltar">
+            <a href="/index.html" class="btnVoltar">
+                <i class="fa fa-arrow-left" onclick="voltar(event,'/index.html')"></i>
+            </a>
         </div>
-            <div class="container__conteudo">
-                <div class="nivel1">
-                    <button class="btnOpcao"><a href="nivel1.html" class="btnOpcaoTexto">Traduza o verbo</a></button>
-                </div>
-                <div class="nivel2">
-                    <button class="btnOpcao"><a href="nivel2.html" class="btnOpcaoTexto">Phrasal Verbs</a></button>
-                </div>
-                <div class="nivel3">
-                    <button class="btnOpcao">Em breve...</button>
-                </div>
+            <div class="container__titulo">
+                <h1>Bem-vindo</span></h1>
+                <p>Como quer se desafiar hoje?</p>
             </div>
+                <div class="container__conteudo">
+                    <div class="nivel1">
+                        <button class="btnOpcao"><a href="nivel1.html" class="btnOpcaoTexto">Traduza o verbo</a></button>
+                    </div>
+                    <div class="nivel2">
+                        <button class="btnOpcao"><a href="nivel2.html" class="btnOpcaoTexto">Phrasal Verbs</a></button>
+                    </div>
+                </div>
     </div>
     <script src="/assets/js/app.js"></script>
 </body>

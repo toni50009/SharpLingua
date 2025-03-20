@@ -4,24 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>SharpLingua</title>
 </head>
 <body>
+    
     <div class="container__nivel">
-        <div class="container__nivel__conteudo">
-            <h2>Tutorial</h2>
-                <ul class="container__nivel__conteudo__lista">
-                    <li>Neste modo, você deve traduzir os Phrasal Verbs que aparecerem.</li>
-                    <li>Para conferir a resposta, clique no botão "Check" ou então utilize a tecla "ENTER" para agilizar.</li>
-                    <li>Para começar, clique no botão abaixo:</li>
-                </ul>    
-            <button onclick="iniciarNivel(`phrasal`)" class="btn__nivel" id="btn__start">Iniciar</button>
+        <div class="container__voltar">
+            <a href="/assets/pages/seletorniveis.html" class="btnVoltar">
+                <i class="fa fa-arrow-left" onclick="voltar(event,'/assets/pages/seletorniveis.html')"></i>
+            </a>
         </div>
-            <div class="container__nivel__conteudo__resultados invisivel">
-                <p id="resultado"></p>
-                <p id="respostasCorretas"></p>
+            <div class="container__nivel__conteudo">
+                <h2>Tutorial</h2>
+                    <ul class="container__nivel__conteudo__lista">
+                        <li>Neste modo, você deve traduzir os Phrasal Verbs que aparecerem.</li>
+                        <li>Para conferir a resposta, clique no botão "Check" ou então utilize a tecla "ENTER" para agilizar.</li>
+                        <li>Para começar, clique no botão abaixo:</li>
+                    </ul>    
+                <button onclick="iniciarNivel(`phrasal`)" class="btn__nivel" id="btn__start">Iniciar</button>
             </div>
-    </div>
+                <div class="container__nivel__conteudo__resultados invisivel">
+                    <p id="resultado"></p>
+                    <p id="respostasCorretas"></p>
+                </div>
+        </div>
 
     <script src="/assets/js/app.js"></script>
 </body>

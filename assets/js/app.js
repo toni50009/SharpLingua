@@ -1,3 +1,15 @@
+function voltar(event,referencia){
+// previnir de voltar para a página anterior mesmo clicando em cancelar
+event.preventDefault();
+
+
+    if(confirm("Quer mesmo voltar? Seus dados nesta sessão serão perdidos!")){
+        window.location.href = referencia;
+    }else{
+        return false;
+    }
+}
+
 
 // Arrays de verbos e traduções
 

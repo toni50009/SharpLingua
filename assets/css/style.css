@@ -62,6 +62,19 @@ body{
 }
 
 
+.btnVoltar, .container__voltar{
+    position: absolute; 
+    text-align: left; 
+    top: 10px;
+    left: 5px; 
+}
+
+.btnVoltar:hover{
+    color: #27c712;
+    cursor: pointer;
+}
+
+
 
 .palavra__nivel{
     margin-top: 2rem;    
