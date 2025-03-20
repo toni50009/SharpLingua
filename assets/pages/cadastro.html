@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>SharpLingua</title>
+</head>
+<body>
+
+    <div class="container">
+        
+        <form action="/assets/php/cadastro.php" method="POST">
+            <div class="inputbox">
+                <label for="new_username">Novo Usuário</label><br>
+                <input type="text" id="new_username" name="new_username" required><br>
+            </div>
+            <div class="inputbox">
+                <label for="new_senha">Senha</label><br>
+                <input type="password" id="new_senha" name="new_senha" required><br>
+            </div><br>
+            <div class="inputbox">
+                <button type="submit" class="btn__nivel">Enviar!</button>
+            </div>
+        </form>
+
+    </div>
+    
+    <script src="/assets/js/app.js"></script>
+</body>
+</html>

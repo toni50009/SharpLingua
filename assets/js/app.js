@@ -1,6 +1,3 @@
-// FUNCAO PARA MOSTRAR O MENU DE CADASTRO
-
-
 
 // Arrays de verbos e traduções
 

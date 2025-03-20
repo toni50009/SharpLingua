@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($result->num_rows > 0) {
         echo "<script>alert('Nome de usuário já existe!');</script>";
-        echo "<script>window.location.href = '/index.html';</script>";
+        echo "<script>window.location.href = '/cadastro.html';</script>";
         exit();
     }else
 // INSERIR NOVO USUARIO
@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // VERIFICAR SE CAMPO ESTA VAZIO
         if($username == " " || $username == "") {
             echo "<script>alert('Preencha todos os campos!');</script>";
-            echo "<script>window.location.href = '/index.html';</script>";
+            echo "<script>window.location.href = '/cadastro.html';</script>";
             exit();
         }
 
