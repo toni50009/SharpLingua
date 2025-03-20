@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  // VERIFICAR SE CAMPO ESTA VAZIO
      if($username == " " || empty($username) || $senha == " " || empty($senha)) {
           echo "<script>alert('Preencha todos os campos!');</script>";
-          echo "<script>window.location.href = '/assets/pages/cadastro.html.html';</script>";
+          echo "<script>window.location.href = '/assets/pages/cadastro.html';</script>";
          exit();
       }
 
