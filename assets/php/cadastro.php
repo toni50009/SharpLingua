@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $stmt->store_result();
 
-    if($$stmt->num_rows > 0) {
+    if($stmt->num_rows > 0) {
         echo "<script>alert('Nome de usuário já existe!');</script>";
         echo "<script>window.location.href = '/assets/pages/cadastro.html';</script>";
         $stmt->close();
@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     //INSERIR NOVO USUARIO
-    $sql = "INSERT INTO usuarios (username,senha) VALUES ('?, ?')";
+    $sql = "INSERT INTO usuarios (username,senha) VALUES (?, ?)";
     $stmt = $conn->prepare($sql);
 
     if(!$stmt) {
