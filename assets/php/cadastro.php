@@ -29,10 +29,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->bind_param("s", $username);
     $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt->store_result();
 
-
-    if($result->num_rows > 0) {
+    if($$stmt->num_rows > 0) {
         echo "<script>alert('Nome de usuário já existe!');</script>";
         echo "<script>window.location.href = '/assets/pages/cadastro.html';</script>";
         $stmt->close();
@@ -43,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     //INSERIR NOVO USUARIO
-    $sql = "INSERT INTO usuarios (username,senha) VALUES ('?,?')";
+    $sql = "INSERT INTO usuarios (username,senha) VALUES ('?, ?')";
     $stmt = $conn->prepare($sql);
 
     if(!$stmt) {
@@ -58,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->close();
         exit();
     }else{
-        echo "<script>alert('Erro ao cadastrar usuário!');</script>";
+        echo "<script>alert('Erro ao cadastrar usuário!');</script>" . $conn->error;
         echo "<script>window.location.href = '/assets/pages/cadastro.html';</script>";
     }
 
@@ -67,6 +66,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 $conn->close();
-
-
 ?>
