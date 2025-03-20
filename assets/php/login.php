@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 
 // VALIDAR LOGIN E REDIRECIONAR PARA PAGINA DE USUARIO
 
@@ -11,32 +7,46 @@ error_reporting(E_ALL);
 require __DIR__ . '/config.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $username = $_POST['username'];
     $senha = $_POST['senha'];
 
-    // BUSCAR USUARIOS
-    $sql = "SELECT * FROM usuarios WHERE username = '$username' AND senha = '$senha'";
-    $result = $conn->query($sql);
+     // VERIFICAR SE CAMPO ESTA VAZIO
+     if($username == " " || empty($username) || $senha == " " || empty($senha)) {
+        echo "<script>alert('Preencha todos os campos!');</script>";
+        echo "<script>window.location.href = '/index.html';</script>";
+       exit();
+    }
 
-    if($result->num_rows > 0) {
+
+    // BUSCAR USUARIOS
+    $sql = "SELECT * FROM usuarios WHERE username = ? AND senha = ?";
+    $stmt = $conn->prepare($sql);
+
+        //VERIFICAR CONEXAO
+        if($stmt == FALSE) {
+            die("Erro ao verificar usuário: " . $conn->error);
+        }
+
+        
+    $stmt->bind_param("ss", $username, $senha);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if($stmt->num_rows > 0) {
         echo "<script>alert('Login efetuado com sucesso!');</script>";
         echo "<script>window.location.href = '/assets/pages/seletorniveis.html';</script>";
+        $stmt->close();
+        $conn->close();
+        exit();
     }else{
         echo "<script>alert('Usuário ou senha incorretos!');</script>";
         echo "<script>window.location.href = '/index.html';</script>";
-    }
-    // VERIFICAR SE  USUARIO JA EXISTA
-    $verificar = "SELECT * FROM usuarios WHERE username = '$username'";
-    $result = $conn->query($verificar);
-
-    if($result->num_rows > 0) {
-        echo "<script>alert('Nome de usuário já existe!');</script>";
-        echo "<script>window.location.href = '/index.html';</script>";
-    }else{
-        echo "<script>alert('Usuário ou senha incorretos!');</script>";
-        echo "<script>window.location.href = '/index.html';</script>";
+        $stmt->close();
+        exit();
     }
 
+    $stmt->close();
 }
 
 $conn->close();
