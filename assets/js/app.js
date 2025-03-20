@@ -22,7 +22,7 @@ const listaTraducoesVerbos = {
     "To do": ["fazer", "executar"],
     "To say": ["dizer", "falar"],
     "To go": ["ir"],
-    "To get": ["obter", "conseguir", "receber"],
+    "To get": ["obter", "conseguir", "receber","ter"],
     "To make": ["fazer", "criar", "produzir"],
     "To know": ["saber", "conhecer"],
     "To think": ["pensar", "achar"],
@@ -40,49 +40,49 @@ const listaTraducoesVerbos = {
 };
 
 const listaPhrasalVerbs = [
-    "To turn on",
-    "To turn off",
-    "To get out",
-    "To get in",
-    "To put on",
-    "To take off",
-    "To look for",
-    "To look after",
-    "To come back",
-    "To go out",
-    "To go in",
-    "To give up",
-    "To give back",
-    "To take down",
-    "To get up",
-    "To get down",
-    "To look up",
-    "To look down",
-    "To put away",
-    "To figure out",
+    "To Break Down",
+    "To Calm Down",
+    "To Call Off",
+    "To Cheer Up",
+    "To Clean Up",
+    "To Come Up",
+    "To Cut Down",
+    "To Turn Up",
+    "To Turn Down",
+    "To Turn On",
+    "To Turn Off",
+    "To Count On",
+    "To End Up",
+    "To Dress Up",
+    "To Find Out",
+    "To Get Away",
+    "To Get Into",
+    "To Get Off",
+    "To Go On",
+    "To Go Over",
 ];
 
 const listaPhrasalVerbsTraducoes = {
-    "To turn on": ["ligar", "acender"],
-    "To turn off": ["desligar", "apagar"],
-    "To get out": ["sair", "descer"],
-    "To get in": ["entrar", "subir"],
-    "To put on": ["vestir", "colocar"],
-    "To take off": ["tirar", "remover"],
-    "To look for": ["procurar", "buscar"],
-    "To look after": ["cuidar", "tomar conta"],
-    "To come back": ["voltar", "retornar"],
-    "To go out": ["sair", "ir embora"],
-    "To go in": ["entrar", "adentrar"],
-    "To give up": ["desistir", "abandonar"],
-    "To give back": ["devolver", "restituir"],
-    "To take down": ["anotar", "derrubar"],
-    "To get up": ["levantar", "acordar"],
-    "To get down": ["descer", "abaixar"],
-    "To look up": ["procurar", "pesquisar"],
-    "To look down": ["olhar para baixo", "desprezar"],
-    "To put away": ["guardar", "arrumar"],
-    "To figure out": ["descobrir", "entender, solucionar"],
+    "To Break Down": ["quebrar", "falhar", "parar de funcionar"],
+    "To Calm Down": ["acalmar-se", "se acalmar", "acalmar"],
+    "To Call Off": ["cancelar", "desmarcar", "suspender"],
+    "To Cheer Up": ["animar-se", "alegrar-se", "animar", "se animar", "alegrar"],
+    "To Clean Up": ["limpar", "arrumar", "organizar"],
+    "To Come Up": ["surgir", "aparecer", "subir"],
+    "To Cut Down": ["cortar", "diminuir", "reduzir"],
+    "To Turn Up": ["aumentar", "ligar", "aparecer", "chegar"],
+    "To Turn Down": ["rejeitar", "diminuir", "abaixar", "recusar"],
+    "To Turn On": ["ligar", "acender", "abrir"],
+    "To Turn Off": ["desligar", "apagar", "fechar"],
+    "To Count On": ["contar com", "depender de", "confiar em"],
+    "To End Up": ["acabar", "terminar", "parar"],
+    "To Dress Up": ["vestir-se bem", "arrumar-se", "fantasiar-se", "se vestir bem", "se arrumar", "se fantasiar"],
+    "To Find Out": ["descobrir", "averiguar", "saber"],
+    "To Get Away": ["escapar", "fugir", "sair"],
+    "To Get Into": ["entrar", "envolver-se", "meter-se", "se envolver", "se meter"],
+    "To Get Off": ["descer", "sair", "deixar", "partir"],
+    "To Go On": ["continuar", "seguir", "prosseguir", "passar"],
+    "To Go Over": ["revisar", "passar por", "analisar", "examinar"],
 };
 
 
@@ -172,6 +172,12 @@ function escolherAleatorio(lista){
 
 //Passo 4: Checar a resposta do usuário
 function checarResposta(verbo, listaTraducao){
+    
+    // coletar dados do HTML
+    const resultadoDiv = document.querySelector(".container__nivel__conteudo__resultados");
+    const campoBotao = document.querySelector(".container__nivel__conteudo__botao");
+    const resultadoTexto = document.getElementById("resultado");
+    const respostasTexto = document.getElementById("respostasCorretas");
     const respostaUsuario = document.getElementById("campoTentativa").value.trim().toLowerCase();
     const respostasAceitas = listaTraducao[verbo].map(resposta => resposta.toLowerCase());
 
@@ -181,13 +187,6 @@ function checarResposta(verbo, listaTraducao){
         document.getElementById("campoTentativa").focus();
         return;
     }
-    
-    // coletar dados do HTML
-    const resultadoDiv = document.querySelector(".container__nivel__conteudo__resultados");
-    const campoBotao = document.querySelector(".container__nivel__conteudo__botao");
-    const resultadoTexto = document.getElementById("resultado");
-    const respostasTexto = document.getElementById("respostasCorretas");
-
     resultadoDiv.classList.remove("invisivel");
 
 
