@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 // VERIFICAR SE USUARIO JA EXISTE
-    $verificar = "SELECT * FROM usuarios WHERE username = '$username'";
+    $verificar = "SELECT * FROM usuarios WHERE username = ?";
     $stmt = $conn->prepare($verificar);
 
     //VERIFICAR CONEXAO
@@ -38,23 +38,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
         exit();
     }
-    // INSERIR NOVO USUARIO
-    else{
 
-        $sql = "INSERT INTO usuarios (username,senha) VALUES ('$username','$senha')";
-        if($stmt->execute()) {
-            echo "<script>alert('Usuário cadastrado com sucesso!');</script>";
-            echo "<script>window.location.href = '/index.html';</script>";
-            $stmt->close();
-            $conn->close();
-            exit();
-        }else{
-            echo "Erro ao cadastrar usuário: " . $conn->error;
-        }
-        $stmt->close();
+    $stmt->close();
+
+
+    //INSERIR NOVO USUARIO
+    $sql = "INSERT INTO usuarios (username,senha) VALUES ('?,?')";
+    $stmt = $conn->prepare($sql);
+
+    if(!$stmt) {
+        die("Erro ao inserir usuário: " . $conn->error);
     }
 
+    $stmt->bind_param("ss", $username, $senha);
+    if($stmt->execute()){
+        echo "<script>alert('Usuário cadastrado com sucesso!');</script>";
+        echo "<script>window.location.href = '/index.html';</script>";
+        $stmt->close();
+        $conn->close();
+        exit();
+    }else{
+        echo "<script>alert('Erro ao cadastrar usuário!');</script>";
+        echo "<script>window.location.href = '/index.html';</script>";
+    }
+
+    $stmt->close();
 }
 
+
 $conn->close();
+
+
 ?>
