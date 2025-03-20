@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($result->num_rows > 0) {
         echo "<script>alert('Nome de usuário já existe!');</script>";
-        echo "<script>window.location.href = '/index.html';</script>";
+        echo "<script>window.location.href = '/assets/pages/cadastro.html';</script>";
         $stmt->close();
         exit();
     }
@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }else{
         echo "<script>alert('Erro ao cadastrar usuário!');</script>";
-        echo "<script>window.location.href = '/index.html';</script>";
+        echo "<script>window.location.href = '/assets/pages/cadastro.html';</script>";
     }
 
     $stmt->close();
