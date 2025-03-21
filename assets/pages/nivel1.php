@@ -9,14 +9,13 @@
 
 
     session_start();
-
-    $id = $_SESSION['usuario_id'];
-
-    if(!isset($_SESSION[$id])) {
+    if(isset($_SESSION['usuario_id'])) {
+        $id = $_SESSION['usuario_id'];
+        echo "<script>console.log('ID do usuário: $id');</script>";
+    }else{
         header('Location: /index.html');
         exit();
     }
-
 
 
 
