@@ -250,14 +250,7 @@ function checarResposta(verbo, listaTraducao){
 
 //Passo 5: Próxima fase
 function proximoPasso(){
-    if(fase === 20){
-        document.querySelector(".container__nivel").innerHTML = `
-        <div class="container__nivel__conteudo__final">
-        Parabéns! Você completou todas as fases!
-        <br>
-        <a href="seletorniveis.html" class="link__menu" style="text-decoration:underline">Clique aqui para voltar ao menu principal</a>
-        </div>
-        `;
+    if(fase === 5){
         verbosDisponiveis = [...listaDeVerbos];
         phrasalVerbsDisponiveis = [...listaPhrasalVerbs];
         fase = 1;
