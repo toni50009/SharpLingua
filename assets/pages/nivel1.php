@@ -5,9 +5,9 @@
 
     session_start();
 
-    require '/assets/php/config.php';
-    require '/assets/php/login.php';
-    
+    include_once '/assets/php/config.php';
+    include_once '/assets/php/login.php';
+
 
     if(isset($_SESSION['usuario_id'])) {
         echo "<script>console.log('ID do usuário: $usuario_id');</script>";
