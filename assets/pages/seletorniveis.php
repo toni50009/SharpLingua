@@ -1,3 +1,42 @@
+<?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    session_start();
+
+    require __DIR__ . '/../php/config.php';
+
+
+    if(!isset($_SESSION['usuario_id'])) {
+        header('Location: /index.html');
+        exit();
+    }
+
+
+    $stmt = $conn->prepare("SELECT nome FROM usuarios WHERE id = ?");
+    $stmt->bind_param("i", $_SESSION['usuario_id']);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($nome);
+    $stmt->fetch();
+
+    $stmt->close();
+
+    $stmt = $conn->prepare("SELECT pontos FROM usuarios WHERE id = ?");
+    $stmt->bind_param("i", $_SESSION['usuario_id']);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($pontos);
+    $stmt->fetch();
+    $stmt->close();
+
+    $conn->close();
+
+
+    echo "<script>console.log('ID do usuário: " . $_SESSION['usuario_id'] . "');</script>";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,7 +55,8 @@
             </a>
         </div>
             <div class="container__titulo">
-                <h1>Bem-vindo</span></h1>
+                <h1>Bem-vindo <?= htmlspecialchars($nome) ?> </span></h1>
+                <p><?= $pontos ?> pontos</p>
                 <p>Como quer se desafiar hoje?</p>
             </div>
                 <div class="container__conteudo">

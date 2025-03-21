@@ -19,13 +19,13 @@ $conn->close();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Parabéns!</title>
+    <title>SharpLingua</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    <div class="container__nivel__conteudo__final">
+    <div class="container">
         <h2>Parabéns!</h2>
-        <p>Você completou todos os níveis e ganhou 1 ponto!</p>
+        <p>Você completou este nível e ganhou 1 ponto!</p>
         <br>
         <a href="/assets/pages/seletorniveis.html" class="link__menu" style="text-decoration:underline">
             Voltar ao menu principal

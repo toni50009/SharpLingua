@@ -1,3 +1,23 @@
+<?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    session_start();
+
+    require __DIR__ . '/../php/config.php';
+
+
+    if(!isset($_SESSION['usuario_id'])) {
+        header('Location: /index.html');
+        exit();
+    }
+
+
+    echo "<script>console.log('ID do usuário: " . $_SESSION['usuario_id'] . "');</script>";
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
