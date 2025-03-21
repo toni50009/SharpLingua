@@ -6,18 +6,17 @@
     session_start();
 
     include_once __DIR__ . '/assets/php/config.php';
-    include_once __DIR__ . '/assets/php/login.php';
 
 
     if(isset($_SESSION['usuario_id'])) {
-        echo "<script>console.log('ID do usuário: $usuario_id');</script>";
+        echo "<script>console.log('ID do usuário: " . $_SESSION['usuario_id'] . ");</script>";
     }else{
         header('Location: /index.html');
         exit();
     }
 
 
-
+    echo "<script>console.log('ID do usuário: " . $_SESSION['usuario_id'] . "');</script>";
 ?>
 
 <!DOCTYPE html>
