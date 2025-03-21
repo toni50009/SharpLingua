@@ -224,7 +224,7 @@ function checarResposta(verbo, listaTraducao){
             Sem mais tentativas restantes! 
             A resposta era:${respostasAceitas.join(", ")}
             <br>
-            <a href="/assets/php/seletorniveis.php" class="link__menu" style="text-decoration:underline">Clique aqui para voltar ao menu principal</a>
+            <a href="/assets/pages/seletorniveis.php" class="link__menu" style="text-decoration:underline">Clique aqui para voltar ao menu principal</a>
             </div>
             `;
             return;
