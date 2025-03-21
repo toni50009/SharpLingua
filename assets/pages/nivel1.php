@@ -4,7 +4,7 @@
     error_reporting(E_ALL);
 
 
-    require __DIR__ . '/assets/php/config.php';
+    include_once '/assets/php/config.php';
 
 
     session_start();
