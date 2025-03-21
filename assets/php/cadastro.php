@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     //INSERIR NOVO USUARIO
-    $sql = "INSERT INTO usuarios (nome,username,senha) VALUES (?, ?)";
+    $sql = "INSERT INTO usuarios (nome,username,senha) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if(!$stmt) {
