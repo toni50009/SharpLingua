@@ -3,12 +3,11 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+    session_start();
 
     include_once '/assets/php/config.php';
     include_once '/assets/php/login.php';
 
-
-    session_start();
     if(isset($_SESSION['usuario_id'])) {
         $id = $_SESSION['usuario_id'];
         echo "<script>console.log('ID do usuário: $id');</script>";
