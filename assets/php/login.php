@@ -47,13 +47,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['usuario_id'] = $usuario_id;
 
         echo "<script>alert('Login efetuado com sucesso!');</script>";
-        echo "<script>window.location.href = '/assets/pages/seletorniveis.html';</script>";
+        echo "<script>window.location.href = '/../pages/seletorniveis.php';</script>";
         $stmt->close();
         $conn->close();
         exit();
     }else{
         echo "<script>alert('Usuário ou senha incorretos!');</script>";
-        echo "<script>window.location.href = '/index.html';</script>";
+        echo "<script>window.location.href = '/../index.html';</script>";
         $stmt->close();
         exit();
     }
