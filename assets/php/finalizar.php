@@ -9,7 +9,7 @@ if($conn->connect_error) {
     die("Erro ao conectar com o banco de dados: " . $conn->connect_error);
 }
 
-$id = $_SESSION['id'];
+$id = $_SESSION['usuario_id'];
 $conn->query("UPDATE usuarios SET nivel1 = 1 WHERE id = $id");
 $conn->close();
 

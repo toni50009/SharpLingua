@@ -10,8 +10,8 @@
 
     session_start();
 
-    $id = $_SESSION['id'];
-    
+    $id = $_SESSION['usuario_id'];
+
     if(!isset($_SESSION[$id])) {
         header('Location: /index.html');
         exit();
