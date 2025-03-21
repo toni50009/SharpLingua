@@ -5,13 +5,16 @@
 
 
     include_once '/assets/php/config.php';
+    include_once '/assets/php/login.php';
 
+    $id = $_SESSION['id'];
 
     session_start();
-    if(!isset($_SESSION['id'])) {
+    if(!isset($_SESSION[$id])) {
         header('Location: /index.html');
         exit();
     }
+
 
 
 
