@@ -195,6 +195,7 @@ function checarResposta(verbo, listaTraducao){
     // Verificar se a resposta do usuário está correta
     //Acertou
     if(respostasAceitas.includes(respostaUsuario)){
+        fase ++;
         resultadoTexto.innerHTML = "Correto!";
         respostasTexto.innerHTML = `Traduções aceitas: ${respostasAceitas.join(", ")}. 
         <br>
@@ -250,7 +251,7 @@ function checarResposta(verbo, listaTraducao){
 
 //Passo 5: Próxima fase
 function proximoPasso(){
-    if(fase === 5){
+    if(fase === 20){
         verbosDisponiveis = [...listaDeVerbos];
         phrasalVerbsDisponiveis = [...listaPhrasalVerbs];
         fase = 1;
@@ -260,7 +261,7 @@ function proximoPasso(){
         return;
     }
 
-    fase++;
+
     document.getElementById("campoTentativa").value = "";
     document.getElementById("campoTentativa").focus();
     document.querySelector(".container__nivel__conteudo__resultados").classList.add("invisivel");
