@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 
 // VALIDAR LOGIN E REDIRECIONAR PARA PAGINA DE USUARIO
 require __DIR__ . '/config.php';
@@ -32,6 +33,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->store_result();
 
     if($stmt->num_rows > 0) {
+
+        $stmt->bind_result($usuario_id);
+        $stmt->fetch();
+
+        $_SESSION['usuario_id'] = $usuario_id;
+
         echo "<script>alert('Login efetuado com sucesso!');</script>";
         echo "<script>window.location.href = '/assets/pages/seletorniveis.html';</script>";
         $stmt->close();
