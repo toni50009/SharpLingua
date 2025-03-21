@@ -1,4 +1,8 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    
     require __DIR__ . '/assets/php/config.php';
 
     session_start();
@@ -7,9 +11,7 @@
         exit();
     }
 
-    ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 ?>
 
