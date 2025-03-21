@@ -259,6 +259,9 @@ function proximoPasso(){
         verbosDisponiveis = [...listaDeVerbos];
         phrasalVerbsDisponiveis = [...listaPhrasalVerbs];
         fase = 1;
+
+        //redirecionar 
+        window.location.href = "/assets/php/finalizar.php";
         return;
     }
 

@@ -2,8 +2,6 @@
 
 
 // VALIDAR LOGIN E REDIRECIONAR PARA PAGINA DE USUARIO
-
-
 require __DIR__ . '/config.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
