@@ -8,9 +8,7 @@
     require __DIR__ . '/../php/config.php';
 
 
-    if(isset($_SESSION['usuario_id'])) {
-        echo "<script>console.log('ID do usuário: " . $_SESSION['usuario_id'] . ");</script>";
-    }else{
+    if(!isset($_SESSION['usuario_id'])) {
         header('Location: /index.html');
         exit();
     }
