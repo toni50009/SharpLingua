@@ -64,7 +64,7 @@
                         <button class="btnOpcao"><a href="/assets/pages/nivel1.php" class="btnOpcaoTexto">Traduza o verbo</a></button>
                     </div>
                     <div class="nivel2">
-                        <button class="btnOpcao"><a href="nivel2.html" class="btnOpcaoTexto">Phrasal Verbs</a></button>
+                        <button class="btnOpcao"><a href="/assets/pages/nivel2.php" class="btnOpcaoTexto">Phrasal Verbs</a></button>
                     </div>
                 </div>
     </div>
