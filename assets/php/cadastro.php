@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Erro ao inserir usuário: " . $conn->error);
     }
 
-    $stmt->bind_param("sss", $username, $senha,$nome);
+    $stmt->bind_param("sss", $nome, $username,$senha);
     if($stmt->execute()){
         echo "<script>alert('Usuário cadastrado com sucesso!');</script>";
         echo "<script>window.location.href = '/index.html';</script>";
