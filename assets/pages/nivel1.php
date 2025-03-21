@@ -5,7 +5,7 @@
 
     session_start();
 
-    include_once __DIR__ . '/assets/php/config.php';
+    include_once '/assets/php/config.php';
 
 
     if(isset($_SESSION['usuario_id'])) {
