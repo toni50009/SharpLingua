@@ -24,7 +24,7 @@ const listaTraducoesVerbos = {
     "To do": ["fazer", "executar"],
     "To say": ["dizer", "falar"],
     "To go": ["ir"],
-    "To get": ["obter", "conseguir", "receber","ter"],
+    "To get": ["obter", "conseguir", "pegar","ter"],
     "To make": ["fazer", "criar", "produzir"],
     "To know": ["saber", "conhecer"],
     "To think": ["pensar", "achar"],
