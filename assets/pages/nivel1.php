@@ -1,6 +1,6 @@
 <?php
-    require __DIR__ . '/config.php';
-    
+    require __DIR__ . '/assets/php/config.php';
+
     session_start();
     if(!isset($_SESSION['usuario_id'])) {
         header('Location: /index.html');
