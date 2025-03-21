@@ -27,7 +27,7 @@ $conn->close();
         <h2>Parabéns!</h2>
         <p>Você completou este nível e ganhou 1 ponto!</p>
         <br>
-        <a href="/assets/pages/seletorniveis.html" class="link__menu" style="text-decoration:underline">
+        <a href="/assets/pages/seletorniveis.php" class="link__menu" style="text-decoration:underline">
             Voltar ao menu principal
         </a>
     </div>
