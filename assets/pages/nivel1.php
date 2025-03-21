@@ -5,7 +5,7 @@
 
     session_start();
 
-    require __DIR__ . '/config.php';
+    require __DIR__ . '/../php/config.php';
 
 
     if(isset($_SESSION['usuario_id'])) {
