@@ -251,7 +251,7 @@ function checarResposta(verbo, listaTraducao){
 
 //Passo 5: Próxima fase
 function proximoPasso(){
-    if(fase === 5){
+    if(fase === 20){
         verbosDisponiveis = [...listaDeVerbos];
         phrasalVerbsDisponiveis = [...listaPhrasalVerbs];
         fase = 1;
