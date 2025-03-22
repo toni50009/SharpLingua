@@ -15,77 +15,61 @@ event.preventDefault();
 
 // Arrays de verbos e traduções
 
-const listaDeVerbos = ["To be", "To have", "To do", "To say", "To go", "To get", "To make", "To know", "To think", "To take"
-    ,"To see", "To come", "To want", "To look", "To use", "To find", "To give", "To tell", "To work", "To call",
-];
-const listaTraducoesVerbos = {
+// Lista de 10 verbos em inglês
+const listaDeVerbos = [
+    "To be",
+    "To have",
+    "To do",
+    "To say",
+    "To go",
+    "To get",
+    "To make",
+    "To know",
+    "To think",
+    "To take"
+  ];
+  
+  // Traduções dos verbos
+  const listaTraducoesVerbos = {
     "To be": ["ser", "estar"],
     "To have": ["ter", "possuir"],
     "To do": ["fazer", "executar"],
     "To say": ["dizer", "falar"],
     "To go": ["ir"],
-    "To get": ["obter", "conseguir", "pegar","ter"],
+    "To get": ["obter", "conseguir", "pegar", "ter"],
     "To make": ["fazer", "criar", "produzir"],
     "To know": ["saber", "conhecer"],
     "To think": ["pensar", "achar"],
-    "To take": ["pegar", "levar"],
-    "To see": ["ver"],
-    "To come": ["vir"],
-    "To want": ["querer"],
-    "To look": ["olhar", "parecer"],
-    "To use": ["usar", "utilizar"],
-    "To find": ["encontrar", "achar"],
-    "To give": ["dar"],
-    "To tell": ["contar", "dizer"],
-    "To work": ["trabalhar", "funcionar"],
-    "To call": ["chamar", "ligar"],
-};
-
-const listaPhrasalVerbs = [
-    "To Break Down",
-    "To Calm Down",
-    "To Call Off",
-    "To Cheer Up",
-    "To Clean Up",
-    "To Come Up",
-    "To Cut Down",
-    "To Turn Up",
-    "To Turn Down",
-    "To Turn On",
-    "To Turn Off",
-    "To Count On",
-    "To End Up",
-    "To Dress Up",
-    "To Find Out",
-    "To Get Away",
-    "To Get Into",
-    "To Get Off",
-    "To Go On",
-    "To Go Over",
-];
-
-const listaPhrasalVerbsTraducoes = {
-    "To Break Down": ["quebrar", "falhar", "parar de funcionar"],
-    "To Calm Down": ["acalmar-se", "se acalmar", "acalmar"],
-    "To Call Off": ["cancelar", "desmarcar", "suspender"],
-    "To Cheer Up": ["animar-se", "alegrar-se", "animar", "se animar", "alegrar"],
-    "To Clean Up": ["limpar", "arrumar", "organizar"],
-    "To Come Up": ["surgir", "aparecer", "subir"],
-    "To Cut Down": ["cortar", "diminuir", "reduzir"],
-    "To Turn Up": ["aumentar", "ligar", "aparecer", "chegar"],
-    "To Turn Down": ["rejeitar", "diminuir", "abaixar", "recusar"],
-    "To Turn On": ["ligar", "acender", "abrir"],
-    "To Turn Off": ["desligar", "apagar", "fechar"],
-    "To Count On": ["contar com", "depender de", "confiar em"],
-    "To End Up": ["acabar", "terminar", "parar"],
-    "To Dress Up": ["vestir-se bem", "arrumar-se", "fantasiar-se", "se vestir bem", "se arrumar", "se fantasiar"],
-    "To Find Out": ["descobrir", "averiguar", "saber"],
-    "To Get Away": ["escapar", "fugir", "sair"],
-    "To Get Into": ["entrar", "envolver-se", "meter-se", "se envolver", "se meter"],
-    "To Get Off": ["descer", "sair", "deixar", "partir"],
-    "To Go On": ["continuar", "seguir", "prosseguir", "passar"],
-    "To Go Over": ["revisar", "passar por", "analisar", "examinar"],
-};
+    "To take": ["pegar", "levar"]
+  };
+  
+  // Lista de 10 phrasal verbs em inglês
+  const listaPhrasalVerbs = [
+    "To break down",
+    "To call off",
+    "To cheer up",
+    "To find out",
+    "To get away",
+    "To get into",
+    "To get off",
+    "To go on",
+    "To look after",
+    "To put off"
+  ];
+  
+  // Traduções dos phrasal verbs
+  const listaPhrasalVerbsTraducoes = {
+    "To break down": ["quebrar", "falhar", "parar de funcionar"],
+    "To call off": ["cancelar", "desmarcar", "suspender"],
+    "To cheer up": ["animar-se", "alegrar-se", "animar", "se animar", "alegrar", "se alegrar", "torcer"],
+    "To find out": ["descobrir", "averiguar", "saber"],
+    "To get away": ["escapar", "fugir", "sair"],
+    "To get into": ["entrar", "envolver-se", "meter-se", "se envolver", "se meter"],
+    "To get off": ["descer", "sair", "deixar", "partir"],
+    "To go on": ["continuar", "seguir", "prosseguir", "passar"],
+    "To look after": ["cuidar de", "tomar conta de", "zelar por"],
+    "To put off": ["adiar", "postergar", "protelar"]
+  };
 
 
 //Universal
@@ -141,7 +125,7 @@ function handleChecarResposta(event) {
 function mensagemInicial(target,opcao){
 
     document.querySelector('.container__nivel__conteudo').innerHTML = `
-    <h2>Fase ${fase}/20</h2>
+    <h2>Fase ${fase}/10</h2>
     <br>
     <h1 class="destaque">${opcao}</h1>
         <section class="container__nivel__conteudo__inputs">
@@ -252,7 +236,7 @@ function checarResposta(verbo, listaTraducao){
 //Passo 5: Próxima fase
 function proximoPasso(){
     // Fase é somada na função anterior
-    if(fase === 20){
+    if(fase === 10){
         verbosDisponiveis = [...listaDeVerbos];
         phrasalVerbsDisponiveis = [...listaPhrasalVerbs];
         fase = 1;
