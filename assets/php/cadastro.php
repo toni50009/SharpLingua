@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 // VERIFICAR SE USUARIO JA EXISTE
-    $verificar = "SELECT * FROM usuarios WHERE username = ?";
+    $verificar = "SELECT username FROM usuarios WHERE username = ?";
     $stmt = $conn->prepare($verificar);
 
     //VERIFICAR CONEXAO
